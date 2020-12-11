@@ -5,6 +5,7 @@ const path = require("path");
 
 const { Client, Message, Collection } = require("discord.js");
 const client = new Client();
+const axios = require("axios");
 
 client.on("ready", () => {
   console.log(`${client.user.tag} Logged In`);
