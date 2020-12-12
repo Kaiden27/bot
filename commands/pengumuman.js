@@ -24,13 +24,13 @@ module.exports = {
         console.log(x);
         return o;
       });
-      const data = result;
+      const datas = result;
 
       const c = [...a, ...b];
       console.log(a);
       console.log(b);
       console.log(c);
-      console.log(data);
+      console.log(datas);
       // console.log(pengumuman);
       // setPengumumans(pengumuman.data.data);
       // setUsers(pengumuman.data.user);
@@ -39,6 +39,13 @@ module.exports = {
       // const test = Object.assign({}, users, pengumumans);
       // setDatas(Object.assign({}, users, pengumumans));
       // console.log(datas);
+
+      {
+        datas.map((data) => {
+          const { title, content, id, created_at, username } = data;
+          return message.channel.send(`${id}: ${title}`);
+        });
+      }
     };
     getPengumumans();
   },
