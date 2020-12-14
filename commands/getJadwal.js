@@ -88,13 +88,7 @@ module.exports = {
         const exampleEmbed = new Discord.MessageEmbed()
           .setColor("#0099ff")
           .setTitle("Jadwal " + hari[i])
-          .setAuthor(
-            "Discord Class Assitant",
-            "https://cdn.discordapp.com/attachments/456779106944679947/788065861159223346/unknown.png"
-          )
-          .setThumbnail(
-            "https://cdn.discordapp.com/attachments/456779106944679947/788065861159223346/unknown.png"
-          )
+
           .setTimestamp();
 
         for (let j in result[i]) {
