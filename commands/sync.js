@@ -12,6 +12,13 @@ module.exports = {
       return;
     } else {
       if (message.member.roles.cache.find((r) => r.name === "Student")) {
+        const userData = {
+          user_id: user_id,
+          username: message.member.displayName,
+          avatar_url: message.member.user.avatarURL(),
+        };
+
+        console.log(userData);
         const role = "Murid";
         const roled = { role: role };
         const run = () => {
@@ -20,6 +27,14 @@ module.exports = {
             .then((res) => {
               console.log(res);
               if (res.status === 200) {
+                axios
+                  .post("http://127.0.0.1:8000/api/auth/sync/create", userData)
+                  .then((res) => {
+                    console.log(res);
+                  })
+                  .catch((err) => {
+                    message.channel.send(`synced`);
+                  });
                 message.channel.send(
                   `Account ${res.data.username} Synced Successfully`
                 );
@@ -33,7 +48,14 @@ module.exports = {
         };
         run();
       } else if (message.member.roles.cache.find((r) => r.name === "Teacher")) {
-        const role = "guru";
+        const userData = {
+          user_id: user_id,
+          username: message.member.displayName,
+          avatar_url: message.member.user.avatarURL(),
+        };
+
+        console.log(userData);
+        const role = "Guru";
         const roled = { role: role };
         const run = () => {
           axios
@@ -41,6 +63,14 @@ module.exports = {
             .then((res) => {
               console.log(res);
               if (res.status === 200) {
+                axios
+                  .post("http://127.0.0.1:8000/api/auth/sync/create", userData)
+                  .then((res) => {
+                    console.log(res);
+                  })
+                  .catch((err) => {
+                    message.channel.send(`synced`);
+                  });
                 message.channel.send(
                   `Account ${res.data.username} Synced Successfully`
                 );
